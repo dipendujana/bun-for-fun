@@ -1,0 +1,24 @@
+name: QC
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint-format-typecheck:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install
+
+      - name: Lint
+        run: bun run lint
+
+      - name: Type Check
+        run: bun run typecheck
+
+      - name: Formatting
+        run: bun run format:check

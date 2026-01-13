@@ -1,0 +1,4 @@
+pnpm*
+*.md
+src/components/ui
+src/routeTree.gen.ts
